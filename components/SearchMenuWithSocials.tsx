@@ -3,19 +3,14 @@ import Image from 'next/image';
 import {
 	Disclosure,
 	DisclosureButton,
-	DisclosurePanel,
-	Menu,
-	MenuButton,
-	MenuItem,
-	MenuItems,
+	DisclosurePanel
 } from '@headlessui/react';
 
 import instaIcon from '@/public/insta-icon.png';
 import twitterIcon from '@/public/twitter-icon.png';
 import linkedinIcon from '@/public/linkedin-icon.png';
 import searchIcon from '@/public/search-icon.png';
-import burgerMenu from '@/public/burger-menu.svg';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const SearchMenuWithSocials = () => {
 	const navigation = [
