@@ -3,7 +3,7 @@ import Image from 'next/image';
 import {
 	Disclosure,
 	DisclosureButton,
-	DisclosurePanel
+	DisclosurePanel,
 } from '@headlessui/react';
 
 import instaIcon from '@/public/insta-icon.png';
@@ -94,7 +94,7 @@ const SearchMenuWithSocials = () => {
 								as="a"
 								href={item.href}
 								className={classNames(
-									`flex flex-col items-center justify-center rounded-2xl px-3 py-4 text-base font-medium hover:bg-gray-400`
+									`flex flex-col items-center justify-center rounded-2xl px-3 py-4 text-base font-medium hover:bg-gray-400 active:bg-gray-400`
 								)}
 							>
 								{item.name}
