@@ -6,27 +6,18 @@ import {
 	DisclosurePanel,
 } from '@headlessui/react';
 
-import instaIcon from '@/public/insta-icon.png';
-import twitterIcon from '@/public/twitter-icon.png';
-import linkedinIcon from '@/public/linkedin-icon.png';
-import searchIcon from '@/public/search-icon.png';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import searchIcon from '@/public/search-icon.png';
+
+import { navigation } from '@/utils/navigation';
 
 const SearchMenuWithSocials = () => {
-	const navigation = [
-		{ name: 'Home', icon: '', href: '#' },
-		{ name: 'Articles', icon: '', href: '#' },
-		{ name: '', icon: instaIcon, href: '#' },
-		{ name: '', icon: twitterIcon, href: '#' },
-		{ name: '', icon: linkedinIcon, href: '#' },
-	];
-
 	function classNames(...classes: any) {
 		return classes.filter(Boolean).join(' ');
 	}
 
 	return (
-		<div className=" flex justify-between md:justify-around items-center">
+		<div className="flex justify-between md:justify-around items-center sticky top-0 z-50 bg-white">
 			<div className="flex gap-2 py-6 items-center">
 				<Image src={searchIcon} alt="" className="w-4 h-4" />
 				<input
