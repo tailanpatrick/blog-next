@@ -1,40 +1,51 @@
+'use client';
 import Image, { StaticImageData } from 'next/image';
+import { useEffect, useState } from 'react';
 
 interface PostCardProps {
 	title: string;
 	date: string;
 	excerpt: string;
 	slug: string;
-	size: 'small' | 'big';
+	size: 'square' | 'retangle';
 	imageUrl: StaticImageData;
 }
 
 const PostCard = ({ title, date, size, excerpt, imageUrl }: PostCardProps) => {
-	const sizeSmall = size === 'small';
+	const [isMobile, setIsMobile] = useState(false);
+	const isSquare = size === 'square' || isMobile;
+
+	useEffect(() => {
+		const handleResize = () => setIsMobile(window.innerWidth <= 1000);
+		handleResize();
+
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
 
 	return (
 		<div
 			className={`${
-				sizeSmall
-					? 'md:w-[300px] h-[382px] flex-col'
+				isSquare
+					? 'md:w-[298px] h-[382px] flex-col'
 					: 'md:w-[966px] h-[243px] flex-row-reverse'
-			} flex  border border-gray-200  shadow-xl rounded-md`}
+			} flex   border border-gray-200  shadow-xl rounded-md`}
 		>
 			<Image
 				src={imageUrl}
 				alt={`Imagem do post ${title}`}
 				className={`${
-					sizeSmall ? 'w-full h-[179px]' : 'w-[433.24px] h-[243px]'
+					isSquare ? 'w-full h-[179px]' : 'w-[433.24px] h-[243px]'
 				}`}
 			/>
 			<div
 				className={`flex flex-col ${
-					sizeSmall ? 'gap-4 p-5' : 'gap-6 px-12 py-8'
+					isSquare ? 'gap-4 p-5' : 'gap-6 px-12 py-8'
 				} `}
 			>
 				<h2
 					className={`text-gray-800 ${
-						sizeSmall ? 'text-xl' : 'text-3xl'
+						isSquare ? 'text-xl' : 'text-3xl'
 					}`}
 				>
 					{title}
