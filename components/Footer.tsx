@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Footer = () => {
 	const socialsIcons = navigation.filter((item) => item.icon !== '');
-	console.log(socialsIcons);
+
 	return (
 		<div className="flex justify-between items-center w-full bg-white border-t border-gray-200 mt-6 md:px-20 md:py-6 p-6">
 			<span className="text-sm">
