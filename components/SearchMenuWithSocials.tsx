@@ -17,7 +17,7 @@ const SearchMenuWithSocials = () => {
 	}
 
 	return (
-		<div className="flex justify-between md:justify-around items-center sticky top-0 z-50 bg-white">
+		<div className="flex justify-between md:justify-around items-center">
 			<div className="flex gap-2 py-6 items-center">
 				<Image src={searchIcon} alt="" className="w-4 h-4" />
 				<input
