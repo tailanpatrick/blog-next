@@ -19,7 +19,10 @@ const RichTextRenderer = ({ content }: RichTextRendererProps) => {
 						return (
 							<p
 								key={index}
-								className="mt-5 text-base leading-relaxed text-gray-700 indent-7 text-justify"
+								className={` ${
+									index === 0 &&
+									'first-letter:text-5xl first-letter:font-serif'
+								} mt-5 text-base leading-relaxed text-gray-700 indent-7 text-justify`}
 							>
 								{text}
 							</p>
