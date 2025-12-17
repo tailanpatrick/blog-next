@@ -3,6 +3,7 @@ import Image from 'next/image';
 import logo from '@/public/logo.png';
 import SearchMenuWithSocials from './SearchMenuWithSocials';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const Header = () => {
 	const [isSticky, setIsSticky] = useState(false);
@@ -22,9 +23,9 @@ const Header = () => {
 				isSticky ? 'fixed top-0 left-0 shadow-md' : 'relative'
 			}`}
 		>
-			<a href="">
+			<Link href="/">
 				<Image src={logo} alt="" width={50} />
-			</a>
+			</Link>
 			<SearchMenuWithSocials />
 		</header>
 	);
