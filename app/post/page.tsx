@@ -1,5 +1,73 @@
 import Image from 'next/image';
 import notebookImage from '@/public/notebook.png';
+import RichTextRenderer from '@/components/RichTextRenderer';
+import { RichTextContent } from '@/types/RichTextContent';
+
+const postContent: RichTextContent = [
+	{
+		type: 'paragraph',
+		children: [
+			{
+				text: 'O reinado mudou no maior palco da programação global. Pela primeira vez na história da plataforma, o TypeScript assumiu o topo como a linguagem mais popular no GitHub, ultrapassando Python e até mesmo o seu “parente” JavaScript, segundo o relatório GitHub Octoverse. O marco ocorreu em agosto de 2025 e simboliza uma mudança importante na forma como desenvolvedores — e agora, agentes de IA — escrevem código.\n\n\nO crescimento do TypeScript está diretamente ligado ao avanço da inteligência artificial generativa no desenvolvimento de software. Com agentes autônomos e copilotos de código cada vez mais presentes, linguagens tipadas ganham terreno por oferecerem mais controle e segurança na produção. Em outras palavras, a IA escreve, mas o TypeScript ajuda a garantir que nada exploda silenciosamente no servidor.',
+				type: 'text',
+			},
+		],
+	},
+	{
+		type: 'paragraph',
+		children: [
+			{
+				text: '',
+				type: 'text',
+			},
+		],
+	},
+	{
+		type: 'paragraph',
+		children: [
+			{
+				text: 'A migração também reflete a transformação do ecossistema front-end. Frameworks modernos como React, Angular, Next.js e SvelteKit já adotam TypeScript como padrão — e isso cria um efeito dominó entre equipes, empresas e desenvolvedores iniciantes.',
+				type: 'text',
+			},
+		],
+	},
+	{
+		type: 'paragraph',
+		children: [
+			{
+				text: '',
+				type: 'text',
+			},
+		],
+	},
+	{
+		type: 'paragraph',
+		children: [
+			{
+				text: 'Enquanto o Python segue firme no trono dos projetos de IA e ciência de dados, o relatório aponta que a combinação JavaScript + TypeScript ainda responde pela maior parte do desenvolvimento global, especialmente na web e em aplicações distribuídas.\n\nSegundo o GitHub, o avanço do TypeScript foi apenas uma das três grandes mudanças impulsionadas pela IA em 2025. Ferramentas generativas se tornaram padrão no fluxo de desenvolvimento: mais de 1,1 milhão de repositórios públicos já usam kits de desenvolvimento para LLMs, sendo 693 mil criados apenas no último ano.',
+				type: 'text',
+			},
+		],
+	},
+	{
+		type: 'paragraph',
+		children: [
+			{
+				text: '',
+				type: 'text',
+			},
+		],
+	},
+	{
+		type: 'paragraph',
+		children: [
+			{
+				text: 'O ritmo de produção também impressiona. Os desenvolvedores somaram 518,7 milhões de pull requests no período — crescimento de 29% — e publicaram quase 1 bilhão de commits, com um recorde de 100 milhões em agosto. E a adoção do Copilot virou rotina: 80% dos novos programadores utilizam o assistente na primeira semana usando o GitHub.',
+				type: 'text',
+			},
+		],
+	},
+];
 
 const Post = () => {
 	return (
@@ -24,103 +92,8 @@ const Post = () => {
 					</span>
 				</div>
 				<hr className="text-gray-300 max-w-6xl" />
-				<article className="prose prose-neutral max-w-5xl mt-5">
-					Section 1.10.32 of "de Finibus Bonorum et Malorum", written
-					by Cicero in 45 BC "Sed ut perspiciatis unde omnis iste
-					natus error sit voluptatem accusantium doloremque
-					laudantium, totam rem aperiam, eaque ipsa quae ab illo
-					inventore veritatis et quasi architecto beatae vitae dicta
-					sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-					aspernatur aut odit aut fugit, sed quia consequuntur magni
-					dolores eos qui ratione voluptatem sequi nesciunt. Neque
-					porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-					consectetur, adipisci velit, sed quia non numquam eius modi
-					tempora incidunt ut labore et dolore magnam aliquam quaerat
-					voluptatem. Ut enim ad minima veniam, quis nostrum
-					exercitationem ullam corporis suscipit laboriosam, nisi ut
-					aliquid ex ea commodi consequatur? Quis autem vel eum iure
-					reprehenderit qui in ea voluptate velit esse quam nihil
-					molestiae consequatur, vel illum qui dolorem eum fugiat quo
-					voluptas nulla pariatur?" 1914 translation by H. Rackham
-					"But I must explain to you how all this mistaken idea of
-					denouncing pleasure and praising pain was born and I will
-					give you a complete account of the system, and expound the
-					actual teachings of the great explorer of the truth, the
-					master-builder of human happiness. No one rejects, dislikes,
-					or avoids pleasure itself, because it is pleasure, but
-					because those who do not know how to pursue pleasure
-					rationally encounter consequences that are extremely
-					painful. Nor again is there anyone who loves or pursues or
-					desires to obtain pain of itself, because it is pain, but
-					because occasionally circumstances occur in which toil and
-					pain can procure him some great pleasure. To take a trivial
-					example, which of us ever undertakes laborious physical
-					exercise, except to obtain some advantage from it? But who
-					has any right to find fault with a man who chooses to enjoy
-					a pleasure that has no annoying consequences, or one who
-					avoids a pain that produces no resultant pleasure?" Section
-					1.10.33 of "de Finibus Bonorum et Malorum" "At vero eos et
-					accusamus et iusto odio dignissimos ducimus qui blanditiis
-					praesentium voluptatum deleniti atque corrupti quos dolores
-					et quas molestias excepturi sint occaecati cupiditate non
-					provident, similique sunt in culpa qui officia deserunt
-					mollitia animi, id est laborum et dolorum fuga. Et harum
-					quidem rerum facilis est et expedita distinctio. Nam libero
-					tempore, cum soluta nobis est eligendi optio cumque nihil
-					impedit quo minus id quod maxime placeat facere possimus,
-					omnis voluptas assumenda est, omnis dolor repellendus.
-					Temporibus autem quibusdam et aut officiis debitis aut rerum
-					necessitatibus saepe eveniet ut et voluptates repudiandae
-					sint et molestiae non recusandae. Itaque earum rerum hic
-					tenetur a sapiente delectus, ut aut reiciendis voluptatibus
-					maiores alias consequatur aut perferendis doloribus
-					asperiores repellat." Section "At vero eos et accusamus et
-					iusto odio dignissimos ducimus qui blanditiis praesentium
-					voluptatum deleniti atque corrupti quos dolores et quas
-					molestias excepturi sint occaecati cupiditate non provident,
-					similique sunt in culpa qui officia deserunt mollitia animi,
-					id est laborum et dolorum fuga. Et harum quidem rerum
-					facilis est et expedita distinctio. Nam libero tempore, cum
-					soluta nobis est eligendi optio cumque nihil impedit quo
-					minus id quod maxime placeat facere possimus, omnis voluptas
-					assumenda est, omnis dolor repellendus. Temporibus autem
-					quibusdam et aut officiis debitis aut rerum necessitatibus
-					saepe eveniet ut et voluptates repudiandae sint et molestiae
-					non recusandae. Itaque earum rerum hic tenetur a sapiente
-					delectus, ut aut reiciendis voluptatibus maiores alias
-					consequatur aut perferendis doloribus asperiores repellat."
-					Section 1.10.33 "At vero eos et accusamus et iusto odio
-					dignissimos ducimus qui blanditiis praesentium voluptatum
-					deleniti atque corrupti quos dolores et quas molestias
-					excepturi sint occaecati cupiditate non provident, similique
-					sunt in culpa qui officia deserunt mollitia animi, id est
-					laborum et dolorum fuga. Et harum quidem rerum facilis est
-					et expedita distinctio. Nam libero tempore, cum soluta nobis
-					est eligendi optio cumque nihil impedit quo minus id quod
-					maxime placeat facere possimus, omnis voluptas assumenda
-					est, omnis dolor repellendus. Temporibus autem quibusdam et
-					aut officiis debitis aut rerum necessitatibus saepe eveniet
-					ut et voluptates repudiandae sint et molestiae non
-					recusandae. Itaque earum rerum hic tenetur a sapiente
-					delectus, ut aut reiciendis voluptatibus maiores alias
-					consequatur aut perferendis doloribus asperiores repellat."
-					Section 1.10.33 of "de Finibus Bonorum et Malorum", written
-					by Cicero in 45 BC "At vero eos et accusamus et iusto odio
-					dignissimos ducimus qui blanditiis praesentium voluptatum
-					deleniti atque corrupti quos dolores et quas molestias
-					excepturi sint occaecati cupiditate non provident, similique
-					sunt in culpa qui officia deserunt mollitia animi, id est
-					laborum et dolorum fuga. Et harum quidem rerum facilis est
-					et expedita distinctio. Nam libero tempore, cum soluta nobis
-					est eligendi optio cumque nihil impedit quo minus id quod
-					maxime placeat facere possimus, omnis voluptas assumenda
-					est, omnis dolor repellendus. Temporibus autem quibusdam et
-					aut officiis debitis aut rerum necessitatibus saepe eveniet
-					ut et voluptates repudiandae sint et molestiae non
-					recusandae. Itaque earum rerum hic tenetur a sapiente
-					delectus, ut aut reiciendis voluptatibus maiores alias
-					consequatur aut perferendis doloribus asperiores repellat."
-				</article>
+
+				<RichTextRenderer content={postContent} />
 			</div>
 		</div>
 	);
