@@ -9,7 +9,7 @@ const Banner = () => {
 			id="banner"
 		>
 			<div className="md:w-[354px] md:h-[146px]">
-				<h1 className="font-bold text-6xl relative text-shadow-lg">
+				<h1 className="font-bold text-6xl relative text-shadow-lg tracking-tight leading-none">
 					Um blog para ler com café
 					{''}
 					<Image
