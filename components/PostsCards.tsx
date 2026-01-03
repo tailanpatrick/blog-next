@@ -1,46 +1,31 @@
 import PostCard from '@/components/PostCard';
+import { getPosts } from '@/services/posts';
+import { PostData } from '@/types/PostTypes';
+import { extractTextFromContent } from '@/utils/extractTextFromContent';
+import { formatDate } from '@/utils/formateDate';
+import { generateExcerp } from '@/utils/generateExcerp';
+import { extractEtag } from 'next/dist/server/image-optimizer';
 
-import notebookImage from '@/public/notebook.png';
+const PostsCards = async () => {
+  const posts = (await getPosts()) as PostData[];
 
-const PostsCards = () => {
   return (
     <div
       className="flex gap-8 mt-10 justify-center flex-wrap max-w-5xl p-8 scroll-mt-[132px]"
       id="artigos"
     >
-      <PostCard
-        imageUrl={notebookImage}
-        title="long estabilished"
-        slug="long-estabilished"
-        size="retangle"
-        date="May 20th 2020"
-        excerpt="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that...."
-      />
-      <PostCard
-        imageUrl={notebookImage}
-        title="long estabilished"
-        slug="long-estabilished"
-        size="square"
-        date="May 20th 2020"
-        excerpt="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that...."
-      />
-      <PostCard
-        imageUrl={notebookImage}
-        title="long estabilished"
-        slug="long-estabilished"
-        size="square"
-        date="May 20th 2020"
-        excerpt="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that...."
-      />
-
-      <PostCard
-        imageUrl={notebookImage}
-        title="long estabilished"
-        slug="long-estabilished"
-        size="square"
-        date="May 20th 2020"
-        excerpt="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that...."
-      />
+      {posts &&
+        posts.map((item, index) => (
+          <PostCard
+            key={index}
+            imageUrl={item.cover.url}
+            title={item.title}
+            slug={item.slug}
+            size={index === 0 ? 'retangle' : 'square'}
+            date={formatDate(item.publishedAt)}
+            excerpt={generateExcerp(extractTextFromContent(item.content))}
+          />
+        ))}
     </div>
   );
 };
