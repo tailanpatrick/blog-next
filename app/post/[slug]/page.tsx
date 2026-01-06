@@ -1,24 +1,33 @@
 import Image from 'next/image';
 import RichTextRenderer from '@/components/RichTextRenderer';
-import { getPost } from '@/services/posts';
+import { getPost, getPosts } from '@/services/posts';
 import { notFound } from 'next/navigation';
 import { formatDate } from '@/utils/formateDate';
+import { PostData } from '@/types/PostTypes';
 
-interface PostPageProps {
-  params: Promise<{ slug: string }>;
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const posts = await getPosts();
+
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
-const Post = async ({ params }: PostPageProps) => {
+const Post = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params;
 
   try {
     const response = await getPost(slug);
 
-    const post = response.data[0];
-    console.log(post);
+    if (response === null) {
+      notFound();
+    }
 
+    console.log(slug);
+
+    const post = response as PostData;
     const postContent = post.content;
-    const author = post.author.name;
+    const author = post?.author?.name;
     const imageUrl = post.cover.url;
     const title = post.title;
     const date = formatDate(post.publishedAt);
@@ -35,7 +44,7 @@ const Post = async ({ params }: PostPageProps) => {
           />
         </div>
         <div className="md:ml-10 text-[#2D3748] px-6 md:px-24 py-1">
-          <h1 className="text-4xl md:text-[45px] tracking-tight leading-tight md:leading-normal font-bold">
+          <h1 className="text-2xl md:text-[45px] tracking-tight leading-tight md:leading-normal font-bold">
             {title}
           </h1>
           <div className="flex md:flex-row flex-col gap-2 md:gap-8 mb-5 mt-3">
@@ -53,7 +62,7 @@ const Post = async ({ params }: PostPageProps) => {
       </div>
     );
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     notFound();
   }
 };

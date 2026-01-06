@@ -4,7 +4,6 @@ import { PostData } from '@/types/PostTypes';
 import { extractTextFromContent } from '@/utils/extractTextFromContent';
 import { formatDate } from '@/utils/formateDate';
 import { generateExcerp } from '@/utils/generateExcerp';
-import { extractEtag } from 'next/dist/server/image-optimizer';
 
 const PostsCards = async () => {
   const posts = (await getPosts()) as PostData[];
