@@ -1,4 +1,4 @@
-import { fetcher } from '@/lib/fetcher';
+import { fetcher } from '@/config/fetcher';
 import { PostData } from '@/types/PostTypes';
 
 type StrapiResponse<T> = {
