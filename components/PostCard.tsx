@@ -64,7 +64,7 @@ const PostCard = ({
             <span className="text-xs text-[#718096] first-letter:uppercase">
               {date}
             </span>
-            <span className="font-bold text-gray-800 text-xs">Read more</span>
+            <span className="font-bold text-gray-800 text-xs">Ler mais</span>
           </div>
         </div>
       </div>
