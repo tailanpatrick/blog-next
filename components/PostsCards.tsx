@@ -3,7 +3,7 @@ import { getPosts } from '@/services/posts';
 import { PostData } from '@/types/PostTypes';
 import { extractTextFromContent } from '@/utils/extractTextFromContent';
 import { formatDate } from '@/utils/formateDate';
-import { generateExcerp } from '@/utils/generateExcerp';
+import { resumeText } from '@/utils/resumeText';
 
 const PostsCards = async () => {
   const posts = (await getPosts()) as PostData[];
@@ -18,11 +18,11 @@ const PostsCards = async () => {
           <PostCard
             key={index}
             imageUrl={item.cover.url}
-            title={item.title}
+            title={index === 0 ? item.title : resumeText(item.title, 40)}
             slug={item.slug}
             size={index === 0 ? 'retangle' : 'square'}
             date={formatDate(item.publishedAt)}
-            excerpt={generateExcerp(extractTextFromContent(item.content))}
+            excerpt={resumeText(extractTextFromContent(item.content))}
           />
         ))}
     </div>
