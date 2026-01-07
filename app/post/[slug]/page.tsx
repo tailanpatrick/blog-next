@@ -5,8 +5,6 @@ import { notFound } from 'next/navigation';
 import { formatDate } from '@/utils/formateDate';
 import { PostData } from '@/types/PostTypes';
 
-export const revalidate = 60;
-
 export async function generateStaticParams() {
   const posts = await getPosts();
 
@@ -22,8 +20,6 @@ const Post = async ({ params }: { params: { slug: string } }) => {
     if (response === null) {
       notFound();
     }
-
-    console.log(slug);
 
     const post = response as PostData;
     const postContent = post.content;
