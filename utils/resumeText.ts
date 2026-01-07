@@ -1,6 +1,4 @@
-export function generateExcerp(longText: string): string {
-  const limite = 160;
-
+export function resumeText(longText: string, limite: number = 160): string {
   if (longText.length <= limite) {
     return longText;
   }
